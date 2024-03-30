@@ -1,7 +1,6 @@
-package org.example.objects.Interface;
+package org.example.Service;
 
-public interface StringListInterface {
-
+public interface StringList {
     // Добавление элемента.
     // Вернуть добавленный элемент
     // в качестве результата выполнения.
@@ -60,7 +59,7 @@ public interface StringListInterface {
     // Сравнить текущий список с другим.
     // Вернуть true/false или исключение,
     // если передан null.
-    boolean equals(StringListInterface otherList);
+    boolean equals(StringList otherList);
 
     // Вернуть фактическое количество элементов.
     int size();
