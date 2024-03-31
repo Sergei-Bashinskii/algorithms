@@ -22,19 +22,19 @@ public class SortingTest {
         long start = System.currentTimeMillis();
         quickSort(arrayForQuickSort, 0, arrayForQuickSort.length - 1);
         long quickSortTime = System.currentTimeMillis() - start;
-        System.out.println("Время быстрой сортировки: " + quickSortTime + "Мс");
+        System.out.println("Время быстрой сортировки: " + quickSortTime + "мс");
 
 
         start = System.currentTimeMillis();
         mergeSort(arrayForMergeSort, 0, arrayForMergeSort.length - 1);
         long mergeSortTime = System.currentTimeMillis() - start;
-        System.out.println("Время сортировки слиянием: " + mergeSortTime + "Мс");
+        System.out.println("Время сортировки слиянием: " + mergeSortTime + "мс");
 
 
         start = System.currentTimeMillis();
         Arrays.sort(arrayForStandardSort);
         long standardSortTime = System.currentTimeMillis() - start;
-        System.out.println("Стандартные Arrays.sort время: " + standardSortTime + "Мс");
+        System.out.println("Стандартные Arrays.sort время: " + standardSortTime + "мс");
     }
 
     private static void quickSort(Integer[] arr, int low, int high) {
