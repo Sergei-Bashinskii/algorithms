@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class IntegerListImpl implements IntegerList {
 
-    private final Integer[] strong;
+    private Integer[] strong;
     private int size;
 
     public IntegerListImpl() {
@@ -20,9 +20,16 @@ public class IntegerListImpl implements IntegerList {
         strong = new Integer[initSize];
     }
 
+    private void grow() {
+        int newCapacity = strong.length + strong.length / 2;
+        strong = Arrays.copyOf(strong, newCapacity);
+    }
+
     @Override
     public Integer add(Integer item) {
-        validateSize();
+        if (size == strong.length) {
+            grow();
+        }
         validateItem(item);
         strong[size++] = item;
         return item;
@@ -30,7 +37,9 @@ public class IntegerListImpl implements IntegerList {
 
     @Override
     public Integer add(int index, Integer item) {
-        validateSize();
+        if (size == strong.length) {
+            grow();
+        }
         validateItem(item);
         validateIndex(index);
         if (index == size) {
@@ -154,6 +163,12 @@ public class IntegerListImpl implements IntegerList {
                 i++;
                 j--;
             }
+        }
+        if (low < j) {
+            quickSort(arr, low, j);
+        }
+        if (high > i) {
+            quickSort(arr, i, high);
         }
     }
 
